@@ -1,9 +1,20 @@
 /**
  * Single file, public domain Kotlin JSON parser that supports SIMD and is faster than DSLJSON.
- * Adheres to RFC 8259, but allows overriding certain behavior with zero runtime cost by modifying
- * const booleans: `private const val OPTION_...`.
- * Tested and benchmarked externally.
+ *
+ * - Adheres to RFC 8259
+ * 
+ * - Allows overriding certain behavior with zero runtime cost by modifying
+ *   const booleans: `private const val OPTION_...`.
+ *
+ * - Tested and benchmarked externally.
+ *
+ * Main motivation behind it: have Kotlin JSON pasring implementation that is:
+ *   a) as close as possible to JVM global maximum on performance;
+ *   b) does not depend on anything besides JDK and Kotlin;
+ *   c) single file that can be copied and embedded to any project;
+ *
  * Simple usage example:
+ *
  * ```kotlin
  * data class User(val id: Long, val email: String)
  *
